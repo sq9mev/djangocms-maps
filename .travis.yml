@@ -18,7 +18,5 @@ install:
 script:
   - tox -e $TOXENV
 
-after_success: coveralls
-
-notifications:
-  webhooks: http://addons.us-iad-rs.aldryn.io/en/travis-endpoint/
+after_success:
+  - coveralls

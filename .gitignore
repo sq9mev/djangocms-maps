@@ -5,4 +5,4 @@
 local_settings.py
 build
 dist
-djangocms_googlemap.egg-info
+djangocms_maps.egg-info

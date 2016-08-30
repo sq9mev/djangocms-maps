@@ -1,5 +1,5 @@
 /*
- * Copyright https://github.com/divio/djangocms-googlemap
+ * Derived from https://github.com/divio/djangocms-googlemap
  */
 
 var djangocms = window.djangocms || {};
@@ -7,14 +7,14 @@ var djangocms = window.djangocms || {};
 /**
  * Generates Google Map instances from plugins.
  *
- * @class GoogleMap
+ * @class Maps
  * @namespace djangocms
  */
 
-djangocms.GoogleMap = {
+djangocms.Maps = {
 
     options: {
-        container: '.djangocms-googlemap-container'
+        container: '.djangocms-maps-container'
     },
 
     /**
@@ -134,5 +134,5 @@ djangocms.GoogleMap = {
 
 };
 
-// initializes all occuring Google Map plugins at once.
-djangocms.GoogleMap.init();
+// initializes all occuring Maps plugins at once.
+djangocms.Maps.init();

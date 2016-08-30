@@ -3,10 +3,10 @@
 
 from setuptools import setup
 
-from djangocms_googlemap import __version__
+import djangocms_maps as package
 
 CLASSIFIERS = [
-    'Development Status :: 5 - Production/Stable',
+    'Development Status :: 4 - Beta',
     'Environment :: Web Environment',
     'Framework :: Django',
     'Intended Audience :: Developers',
@@ -17,7 +17,6 @@ CLASSIFIERS = [
     'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     'Topic :: Internet :: WWW/HTTP :: Dynamic Content :: Message Boards',
     'Programming Language :: Python :: 2',
-    'Programming Language :: Python :: 2.6',
     'Programming Language :: Python :: 2.7',
     'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3.3',
@@ -26,16 +25,15 @@ CLASSIFIERS = [
 ]
 
 setup(
-    name='djangocms-googlemap',
-    version=__version__,
-    description='Google Maps plugin for django CMS',
-    author='Divio AG',
-    author_email='info@divio.ch',
-    url='https://github.com/divio/djangocms-googlemap',
+    name='djangocms-maps',
+    version=package.__version__,
+    description=package.__doc__,
+    author='Peter Bittner',
+    author_email='django@bittner.it',
+    url='https://github.com/Organice/djangocms-maps',
     packages=[
-        'djangocms_googlemap',
-        'djangocms_googlemap.migrations',
-        'djangocms_googlemap.south_migrations'
+        'djangocms_maps',
+        'djangocms_maps.migrations',
     ],
     license='BSD License',
     platforms=['OS Independent'],

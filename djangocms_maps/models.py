@@ -6,9 +6,9 @@ from cms.utils.compat.dj import python_2_unicode_compatible
 
 
 @python_2_unicode_compatible
-class GoogleMap(CMSPlugin):
+class Maps(CMSPlugin):
     """
-    A google maps integration
+    Integration of a map with support for different providers
     """
     translatable_content_excluded_fields = [
         'address', 'zipcode', 'width', 'height']

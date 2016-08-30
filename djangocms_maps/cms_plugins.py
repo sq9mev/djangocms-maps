@@ -3,16 +3,16 @@ from django.utils.translation import ugettext_lazy as _
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
-from .forms import GoogleMapForm
-from .models import GoogleMap
+from .forms import MapsForm
+from .models import Maps
 
 
-class GoogleMapPlugin(CMSPluginBase):
-    model = GoogleMap
-    name = _("Google Map")
-    render_template = "cms/plugins/googlemap.html"
+class MapsPlugin(CMSPluginBase):
+    model = Maps
+    name = _("Maps")
+    render_template = "djangocms_maps/maps.html"
     admin_preview = False
-    form = GoogleMapForm
+    form = MapsForm
     fieldsets = (
         (None, {
             'fields': ('title', 'address', ('zipcode', 'city',),
@@ -34,4 +34,5 @@ class GoogleMapPlugin(CMSPluginBase):
         })
         return context
 
-plugin_pool.register_plugin(GoogleMapPlugin)
+
+plugin_pool.register_plugin(MapsPlugin)
