@@ -28,6 +28,7 @@ class MapsPlugin(CMSPluginBase):
     )
 
     def render(self, context, instance, placeholder):
+        instance.provider_template = 'djangocms_maps/provider/googlemaps.html'
         context.update({
             'object': instance,
             'placeholder': placeholder,
