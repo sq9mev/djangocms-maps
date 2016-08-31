@@ -1,11 +1,16 @@
 /*
- * Derived from https://github.com/divio/djangocms-googlemap
+ * Mapbox OSM map for djangocms_maps, https://github.com/Organice/djangocms-maps
+ *
+ * Copyright (c) 2016 Peter Bittner <django@bittner.it>
+ * Copyright (c) 2016 Divio (original author for Google Maps implementation)
+ *
+ * documentation: https://www.mapbox.com/mapbox.js/api/
  */
 
 var djangocms = window.djangocms || {};
 
 /**
- * Generates Google Map instances from plugins.
+ * Mapbox OSM map instances from plugins.
  *
  * @class Maps
  * @namespace djangocms
@@ -18,7 +23,7 @@ djangocms.Maps = {
     },
 
     /**
-     * Initializes all Google Map instances.
+     * Initializes all Map instances.
      *
      * @method init
      * @private
@@ -36,7 +41,7 @@ djangocms.Maps = {
     },
 
     /**
-     * Loads a single Google Map instance provided by ``init``.
+     * Loads a single Map instance provided by ``init``.
      *
      * @method _loadMap
      * @private
@@ -48,56 +53,60 @@ djangocms.Maps = {
         var data = container.data();
 
         var options = {
+            apiKey: data.api_key,
             zoom: data.zoom,
-            mapTypeId: google.maps.MapTypeId.ROADMAP, /* ROADMAP, SATELLITE, HYBRID or TERRAIN */
-            scrollwheel: data.scrollwheel,
-            disableDoubleClickZoom: !data.double_click_zoom,
-            draggable: data.draggable,
+            scrollWheelZoom: data.scrollwheel,
+            doubleClickZoom: data.double_click_zoom,
+            dragging: data.draggable,
             keyboardShortcuts: data.keyboard_shortcuts,
             panControl: data.pan_control,
             zoomControl: data.zoom_control,
-            streetViewControl: data.street_view_control,
             styles: data.style,
             center: { lat: 46.94708, lng: 7.445975 } // default to switzerland;
         };
 
-        var map = new google.maps.Map(container[0], options);
+        L.mapbox.accessToken = options.apiKey;
 
-        // latitute or longitute have presedence over the address when provided
+        var map = L.mapbox.map(container[0], 'mapbox.streets', options);
+
+        // latitute or longitute have precedence over the address when provided
         // inside the plugin form
         if (data.lat.length && data.lng.length) {
             latlng = { lat: parseFloat(data.lat), lng: parseFloat(data.lng) };
-            map.setCenter(latlng);
+            map.setView(latlng, data.zoom);
             this.addMarker(map, latlng, data);
         } else {
             // load latlng from given address
-            var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({ address: data.address }, function (results, status) {
-                // check if address can be found if not show default (var latlng)
-                if (status == google.maps.GeocoderStatus.OK) {
-                    latlng = results[0].geometry.location;
+            L.mapbox.geocoder('mapbox.places').query(data.address, function(err, geodata) {
+                if (geodata.lbounds) {
+                    map.fitBounds(geodata.lbounds);
+                } else if (geodata.latlng) {
+                    latlng = [geodata.latlng[0], geodata.latlng[1]];
+                    map.setView(latlng, 13);
                     that.addMarker(map, latlng, data);
                 }
             });
         }
+
+        // add some layers to switch between them - that's beautiful
+        L.control.layers({
+            'Streets': L.mapbox.tileLayer('mapbox.streets').addTo(map),
+            'Satellite': L.mapbox.tileLayer('mapbox.satellite'),
+            'Hybrid': L.mapbox.tileLayer('mapbox.streets-satellite')
+        }).addTo(map);
     },
 
     /**
-     * Adds a merker to a Google Map instance.
+     * Adds a marker to a Map instance.
      *
      * @method _loadMap
-     * @param {jQuery} map ``google.maps.Map`` instance
-     * @param {jQuery} latlng proper formated lat/lng coordinates
-     * @param {jQuery} data the data objects from a Google Map instance
+     * @param {jQuery} map ``L.Map`` instance
+     * @param {jQuery} latlng proper formatted lat/lng coordinates
+     * @param {jQuery} data the data objects from a Map instance
      */
     addMarker: function addMarker(map, latlng, data) {
-        var infoWindow;
         var windowContent = '';
-        var marker = new google.maps.Marker({
-            'position': latlng,
-            'map': map,
-            'title': data.title
-        });
+        var marker = L.marker(latlng).addTo(map);
 
         if (data.show_infowindow) {
             // prepare info window
@@ -111,25 +120,11 @@ djangocms.Maps = {
                 windowContent += '<br /><em>' + data.info_content + '</em>'
             }
 
-            infowindow = new google.maps.InfoWindow({
-                content: windowContent
-            });
-
-            // show info window
-            infowindow.open(map, marker);
-
-            // register click handler if the user has closed the window to reopen it
-            google.maps.event.addListener(marker, 'click', (function (marker) {
-                return function () {
-                    infowindow.open(map, marker);
-                    marker.setAnimation(google.maps.Animation.BOUNCE);
-                    setTimeout(function () { marker.setAnimation(null); }, 750);
-                }
-            })(marker));
+            marker.bindPopup(windowContent).openPopup();
         }
 
         // reposition map
-        map.setCenter(latlng);
+        map.panTo(latlng);
     }
 
 };

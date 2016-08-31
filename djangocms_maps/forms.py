@@ -24,10 +24,12 @@ class MapsForm(ModelForm):
         if width or height:
             if width and not CSS_WIDTH_RE.match(width):
                 self._errors['width'] = self.error_class([
-                    _(u'Must be a positive integer followed by “px”, “em” or “%”.')])
+                    _(u'Must be a positive integer followed by'
+                      u' “px”, “em” or “%”.')])
             if height and not CSS_HEIGHT_RE.match(height):
                 self._errors['height'] = self.error_class([
-                    _(u'Must be a positive integer followed by “px”, “em”.')])
+                    _(u'Must be a positive integer followed by'
+                      u' “px”, “em”.')])
         return cleaned_data
 
     def clean_style(self):

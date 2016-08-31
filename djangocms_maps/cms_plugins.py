@@ -5,6 +5,7 @@ from cms.plugin_pool import plugin_pool
 
 from .forms import MapsForm
 from .models import Maps
+from .settings import API_KEYS
 
 
 class MapsPlugin(CMSPluginBase):
@@ -15,21 +16,30 @@ class MapsPlugin(CMSPluginBase):
     form = MapsForm
     fieldsets = (
         (None, {
-            'fields': ('title', 'address', ('zipcode', 'city',),
-                       'content', 'zoom', ('lat', 'lng'),),
+            'fields': (
+                'title',
+                ('address', 'city'),
+                ('zipcode', 'zoom',),
+                'content',
+                ('lat', 'lng'),
+            ),
         }),
         (_('Advanced'), {
-            'fields': (('route_planer', 'route_planer_title'),
-                       ('width', 'height',), 'info_window', 'scrollwheel',
-                       'double_click_zoom', 'draggable', 'keyboard_shortcuts',
-                       'pan_control', 'zoom_control', 'street_view_control',
-                       'style'),
+            'fields': (
+                ('map_provider', 'info_window'),
+                ('width', 'height'),
+                # ('route_planer', 'route_planer_title'),
+                ('scrollwheel', 'double_click_zoom', 'draggable',
+                 'keyboard_shortcuts'),
+                ('pan_control', 'zoom_control', 'street_view_control'),
+                'style',
+            ),
         }),
     )
 
     def render(self, context, instance, placeholder):
-        instance.provider_template = 'djangocms_maps/provider/googlemaps.html'
         context.update({
+            'api_key': API_KEYS[instance.map_provider],
             'object': instance,
             'placeholder': placeholder,
         })

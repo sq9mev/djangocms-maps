@@ -4,6 +4,8 @@ from django.utils.translation import ugettext_lazy as _
 from cms.models import CMSPlugin
 from cms.utils.compat.dj import python_2_unicode_compatible
 
+from .settings import PROVIDERS
+
 
 @python_2_unicode_compatible
 class Maps(CMSPlugin):
@@ -12,6 +14,10 @@ class Maps(CMSPlugin):
     """
     translatable_content_excluded_fields = [
         'address', 'zipcode', 'width', 'height']
+
+    map_provider = models.CharField(
+        _("map provider"), max_length=16, blank=False, null=False,
+        choices=PROVIDERS, default=PROVIDERS[0][0])
 
     title = models.CharField(_("map title"), max_length=100, blank=True,
                              null=True)
@@ -47,11 +53,11 @@ class Maps(CMSPlugin):
 
     width = models.CharField(
         _('width'), max_length=6, default='100%',
-        help_text=_('Plugin width (in pixels or percent).'))
+        help_text=_('Plugin width (in px, em, %).'))
 
     height = models.CharField(
         _('height'), max_length=6, default='400px',
-        help_text=_('Plugin height (in pixels).'))
+        help_text=_('Plugin height (in px, em).'))
 
     info_window = models.BooleanField(
         _('info window'), default=True,
