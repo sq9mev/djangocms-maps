@@ -1,7 +1,7 @@
 CHANGELOG
 =========
 
-0.1.0 (2016-09-01)
+0.5.0 (2016-09-01)
 ------------------
 
 - Fork ``djangocms-googlemap`` plugin, remove legacy burden
@@ -11,3 +11,10 @@ CHANGELOG
 - Add settings (API keys) for Google Maps and all future providers
 - Implement Mapbox provider
 - Add stubs for Bing, HERE, ViaMichelin
+
+before 0.5.0
+------------
+
+- See change log of Divio's djangocms-googlemap_.
+
+.. _djangocms-googlemap: https://github.com/divio/djangocms-googlemap/blob/master/CHANGELOG.rst
