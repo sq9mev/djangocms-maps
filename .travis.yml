@@ -9,7 +9,9 @@ env:
 
 install:
   - pip install tox
+  - pip install collective.checkdocs pygments
   - npm install -g jshint
 script:
   - tox -e $TOXENV
   - jshint djangocms_maps
+  - python setup.py -q sdist && python setup.py checkdocs
