@@ -57,6 +57,8 @@ djangocms.Maps = {
             panControl: data.pan_control,
             zoomControl: data.zoom_control,
             streetViewControl: data.street_view_control,
+            mapTypeControl: data.layers_control,
+            scaleControl: data.scale_bar,
             styles: data.style,
             center: { lat: 46.94708, lng: 7.445975 } // default to switzerland;
         };
@@ -66,7 +68,7 @@ djangocms.Maps = {
         // latitute or longitute have presedence over the address when provided
         // inside the plugin form
         if (data.lat.length && data.lng.length) {
-            latlng = { lat: parseFloat(data.lat), lng: parseFloat(data.lng) };
+            var latlng = { lat: parseFloat(data.lat), lng: parseFloat(data.lng) };
             map.setCenter(latlng);
             this.addMarker(map, latlng, data);
         } else {

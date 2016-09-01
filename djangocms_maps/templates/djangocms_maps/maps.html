@@ -13,6 +13,8 @@
         data-pan_control="{{ object.pan_control|lower }}"
         data-zoom_control="{{ object.zoom_control|lower }}"
         data-street_view_control="{{ object.street_view_control|lower }}"
+        data-layers_control="{{ object.layers_control|lower }}"
+        data-scale_bar="{{ object.scale_bar|lower }}"
         data-lat="{% if object.lat %}{{ object.lat }}{% endif %}"
         data-lng="{% if object.lng %}{{ object.lng }}{% endif %}"
         data-show_infowindow="{{ object.info_window|lower }}"

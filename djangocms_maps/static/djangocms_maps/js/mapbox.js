@@ -61,6 +61,8 @@ djangocms.Maps = {
             keyboardShortcuts: data.keyboard_shortcuts,
             panControl: data.pan_control,
             zoomControl: data.zoom_control,
+            layersControl: data.layers_control,
+            scaleBar: data.scale_bar,
             styles: data.style,
             center: { lat: 46.94708, lng: 7.445975 } // default to switzerland;
         };
@@ -69,10 +71,21 @@ djangocms.Maps = {
 
         var map = L.mapbox.map(container[0], 'mapbox.streets', options);
 
+        if (options.layersControl) {
+            L.control.layers({
+                'Streets': L.mapbox.tileLayer('mapbox.streets').addTo(map),
+                'Satellite': L.mapbox.tileLayer('mapbox.satellite'),
+                'Hybrid': L.mapbox.tileLayer('mapbox.streets-satellite')
+            }).addTo(map);
+        }
+        if (options.scaleBar) {
+            L.control.scale().addTo(map);
+        }
+
         // latitute or longitute have precedence over the address when provided
         // inside the plugin form
         if (data.lat.length && data.lng.length) {
-            latlng = { lat: parseFloat(data.lat), lng: parseFloat(data.lng) };
+            var latlng = { lat: parseFloat(data.lat), lng: parseFloat(data.lng) };
             map.setView(latlng, data.zoom);
             this.addMarker(map, latlng, data);
         } else {
@@ -81,19 +94,12 @@ djangocms.Maps = {
                 if (geodata.lbounds) {
                     map.fitBounds(geodata.lbounds);
                 } else if (geodata.latlng) {
-                    latlng = [geodata.latlng[0], geodata.latlng[1]];
+                    var latlng = [geodata.latlng[0], geodata.latlng[1]];
                     map.setView(latlng, 13);
                     that.addMarker(map, latlng, data);
                 }
             });
         }
-
-        // add some layers to switch between them - that's beautiful
-        L.control.layers({
-            'Streets': L.mapbox.tileLayer('mapbox.streets').addTo(map),
-            'Satellite': L.mapbox.tileLayer('mapbox.satellite'),
-            'Hybrid': L.mapbox.tileLayer('mapbox.streets-satellite')
-        }).addTo(map);
     },
 
     /**

@@ -79,10 +79,14 @@ class Maps(CMSPlugin):
 
     pan_control = models.BooleanField(_('Pan control'), default=True)
 
-    zoom_control = models.BooleanField(_('zoom control'), default=True)
+    zoom_control = models.BooleanField(_('Zoom control'), default=True)
 
     street_view_control = models.BooleanField(
         _('Street View control'), default=True)
+
+    layers_control = models.BooleanField(_('Layers control'), default=True)
+
+    scale_bar = models.BooleanField(_('Scale bar'), default=False)
 
     def __str__(self):
         return u"%s (%s, %s %s)" % (self.get_title(), self.address,
