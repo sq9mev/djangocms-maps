@@ -1,3 +1,4 @@
+{% load i18n %}{% get_current_language as LANGUAGE_CODE %}
 <div class="djangocms djangocms-maps plugin_maps">
     {% include "djangocms_maps/maps_title.html" %}
     <div class="djangocms-maps-container" id="djangocms-maps-{{ object.map_provider }}-{{ object.pk }}"
@@ -20,6 +21,7 @@
         data-show_infowindow="{{ object.info_window|lower }}"
         data-style="{{ object.style }}"
         data-api_key="{{ api_key }}"
+        data-lang_code="{{ LANGUAGE_CODE }}"
         style="{% if object.width %}width: {{ object.width }}; {% endif %}{% if object.height %}height: {{ object.height }};{% endif %}">
     </div>
 </div>

@@ -28,8 +28,8 @@ This plugin requires `django CMS`_ 3.3 (and Django 1.8) or above.
 Configuration
 =============
 
-``MAPS_PROVIDERS``
-------------------
+``MAPS_PROVIDERS = [ ('<str>', '<str>'), ... ]``
+------------------------------------------------
 Optional.  Allows you to specify the providers you want to offer, their
 display labels and sort order in the user interface.  Put a provider on top
 of the list to make it the default.  **Default:**
@@ -44,24 +44,24 @@ of the list to make it the default.  **Default:**
         ('viamichelin', _('ViaMichelin (API key required)')),
     ]
 
-``MAPS_BINGMAPS_API_KEY``
--------------------------
+``MAPS_BINGMAPS_API_KEY = '<str>'``
+-----------------------------------
 `API key for Bing Maps`_ (required for using Bing Maps).
 
-``MAPS_GOOGLEMAPS_API_KEY``
----------------------------
+``MAPS_GOOGLEMAPS_API_KEY = '<str>'``
+-------------------------------------
 `API key for Google Maps`_ (required for using Google Maps).
 
-``MAPS_HERE_API_KEY``
----------------------
-`API key for HERE WeGo`_ (required for using HERE maps).
+``MAPS_HERE_API_KEY = {'app_id': '<str>', 'app_code': '<str>'}``
+----------------------------------------------------------------
+`APP_ID and APP_CODE for HERE WeGo`_ (required for using HERE maps).
 
-``MAPS_MAPBOX_API_KEY``
------------------------
+``MAPS_MAPBOX_API_KEY = '<str>'``
+---------------------------------
 `Access token for Mapbox`_ (required for using OSM maps with Mapbox tile layers).
 
-``MAPS_VIAMICHELIN_API_KEY``
-----------------------------
+``MAPS_VIAMICHELIN_API_KEY = '<str>'``
+--------------------------------------
 `API key for ViaMichelin`_ (required for using ViaMichelin maps).
 
 Translations
@@ -79,7 +79,7 @@ Developer Resources
 - Google:
   - `API docs <https://developers.google.com/maps/documentation/javascript/>`__
 - HERE:
-  - `API docs <https://developer.here.com/>`__
+  - `API docs <https://developer.here.com/javascript-apis/documentation/v3/maps/topics/api-reference.html>`__
   - `examples <https://developer.here.com/api-explorer/maps-js/>`__
 - Mapbox.js / Leaflet.js:
   - `API docs <https://www.mapbox.com/mapbox.js/api/>`__
@@ -115,8 +115,11 @@ Developer Resources
 .. _django CMS: https://github.com/divio/django-cms
 .. _virtualenv: https://virtualenv.pypa.io/en/stable/
 .. _API key for Bing Maps: https://msdn.microsoft.com/en-us/library/mt712556.aspx
-.. _API key for Google Maps: https://developers.google.com/maps/documentation/javascript/get-api-key
-.. _API key for HERE WeGo: https://developer.here.com/javascript-apis/documentation/v3/maps/common/credentials.html
+.. _API key for Google Maps:
+    https://developers.google.com/maps/documentation/javascript/get-api-key
+.. _APP_ID and APP_CODE for HERE WeGo:
+    https://developer.here.com/javascript-apis/documentation/v3/maps/common/credentials.html
 .. _Access token for Mapbox: https://www.mapbox.com/help/create-api-access-token/
-.. _API key for ViaMichelin: http://business-solutions.travel.michelin.com/contact-us/open-a-free-api-test-account.html
+.. _API key for ViaMichelin:
+    http://business-solutions.travel.michelin.com/contact-us/open-a-free-api-test-account.html
 .. _transifex: https://www.transifex.com/divio/djangocms-maps/

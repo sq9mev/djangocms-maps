@@ -1,6 +1,7 @@
 """
 Default settings for djangcms_maps
 """
+import json
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
@@ -13,7 +14,7 @@ VIAMICHELIN_API_KEY = getattr(settings, 'MAPS_VIAMICHELIN_API_KEY', '')
 API_KEYS = {
     'bingmaps': BINGMAPS_API_KEY,
     'googlemaps': GOOGLEMAPS_API_KEY,
-    'here': HERE_API_KEY,
+    'here': json.dumps(HERE_API_KEY),
     'mapbox': MAPBOX_API_KEY,
     'viamichelin': VIAMICHELIN_API_KEY,
 }
