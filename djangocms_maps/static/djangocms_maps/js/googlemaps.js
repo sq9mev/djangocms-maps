@@ -24,9 +24,9 @@ djangocms.Maps = {
      * @private
      * @param {Object} opts overwrite default options
      */
-    init: function init(options) {
+    init: function init(opts) {
         var that = this;
-        var options = $.extend(true, {}, this.options, options);
+        var options = $.extend(true, {}, this.options, opts);
 
         // loop through every instance
         var containers = $(options.container);
@@ -108,7 +108,7 @@ djangocms.Maps = {
             windowContent += data.address;
 
             if (data.info_content) {
-                windowContent += '<br /><em>' + data.info_content + '</em>'
+                windowContent += '<br /><em>' + data.info_content + '</em>';
             }
 
             infowindow = new google.maps.InfoWindow({
@@ -124,7 +124,7 @@ djangocms.Maps = {
                     infowindow.open(map, marker);
                     marker.setAnimation(google.maps.Animation.BOUNCE);
                     setTimeout(function () { marker.setAnimation(null); }, 750);
-                }
+                };
             })(marker));
         }
 

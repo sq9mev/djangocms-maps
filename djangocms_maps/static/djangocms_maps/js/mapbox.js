@@ -29,9 +29,9 @@ djangocms.Maps = {
      * @private
      * @param {Object} opts overwrite default options
      */
-    init: function init(options) {
+    init: function init(opts) {
         var that = this;
-        var options = $.extend(true, {}, this.options, options);
+        var options = $.extend(true, {}, this.options, opts);
 
         // loop through every instance
         var containers = $(options.container);
@@ -117,7 +117,7 @@ djangocms.Maps = {
             windowContent += data.address;
 
             if (data.info_content) {
-                windowContent += '<br /><em>' + data.info_content + '</em>'
+                windowContent += '<br /><em>' + data.info_content + '</em>';
             }
 
             marker.bindPopup(windowContent).openPopup();
