@@ -58,7 +58,7 @@ djangocms.Maps = {
             scrollWheelZoom: data.scrollwheel,
             doubleClickZoom: data.double_click_zoom,
             dragging: data.draggable,
-            keyboardShortcuts: data.keyboard_shortcuts,
+            keyboard: data.keyboard_shortcuts,
             panControl: data.pan_control,
             zoomControl: data.zoom_control,
             layersControl: data.layers_control,
