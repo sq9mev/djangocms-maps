@@ -1,5 +1,7 @@
-djangocms-maps
-==============
+djangocms-maps |latest-version|
+===============================
+
+|build-status| |health| |python-support| |downloads| |license| |gitter|
 
 A universal maps plugin for django CMS, supporting all major map providers.
 
@@ -27,9 +29,9 @@ Configuration
 
 ``MAPS_PROVIDERS``
 ~~~~~~~~~~~~~~~~~~
-Allows you to specify the providers you want to offer, their display labels
-and sort order in the user interface.  Put a provider on top of the list to
-make it the default.
+Optional.  Allows you to specify the providers you want to offer, their
+display labels and sort order in the user interface.  Put a provider on top
+of the list to make it the default.  **Default:**
 
 .. code-block:: python
 
@@ -85,6 +87,28 @@ Developer Resources
 - ViaMichelin:
   - `API docs <http://dev.viamichelin.com/map-service.html>`_
 
+
+.. |latest-version| image:: https://img.shields.io/pypi/v/djangocms-maps.svg
+   :alt: Latest version on PyPI
+   :target: https://pypi.python.org/pypi/djangocms-maps
+.. |build-status| image:: https://travis-ci.org/Organice/djangocms-maps.svg?branch=master
+   :alt: Build status
+   :target: https://travis-ci.org/Organice/djangocms-maps
+.. |health| image:: https://landscape.io/github/Organice/djangocms-maps/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/Organice/djangocms-maps/master
+   :alt: Code health
+.. |python-support| image:: https://img.shields.io/pypi/pyversions/djangocms-maps.svg
+   :target: https://pypi.python.org/pypi/djangocms-maps
+   :alt: Python versions
+.. |downloads| image:: https://img.shields.io/pypi/dm/djangocms-maps.svg
+   :alt: Monthly downloads from PyPI
+   :target: https://pypi.python.org/pypi/djangocms-maps
+.. |license| image:: https://img.shields.io/pypi/l/djangocms-maps.svg
+   :alt: Software license
+   :target: https://github.com/Organice/djangocms-maps/blob/master/LICENSE.txt
+.. |gitter| image:: https://badges.gitter.im/Organice/djangocms-maps.svg
+   :alt: Gitter chat room
+   :target: https://gitter.im/Organice/chat
 
 .. _Leaflet.js: http://leafletjs.com/
 .. _django CMS: https://github.com/divio/django-cms
