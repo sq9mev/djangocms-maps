@@ -30,8 +30,10 @@ class Maps(CMSPlugin):
         _("additional content"), max_length=255, blank=True,
         help_text=_('Displayed under address in the bubble.'))
 
-    style = models.TextField(_("custom map style"), blank=True,
-        help_text=_('Provide a valid JSON configuration (escaped). See '
+    style = models.TextField(
+        _("custom map style"), blank=True,
+        help_text=_(
+            'Provide a valid JSON configuration (escaped). See '
             'developers.google.com/maps/documentation/javascript/styling'))
 
     ZOOM_LEVELS = map(lambda c: (c, str(c)), range(22))

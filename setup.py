@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from os.path import abspath, dirname, join
 from setuptools import setup
 
 import djangocms_maps as package
@@ -24,6 +25,13 @@ CLASSIFIERS = [
     'Programming Language :: Python :: 3.5',
 ]
 
+
+def read(*pathcomponents):
+    """Read the contents of a file located relative to setup.py"""
+    with open(join(abspath(dirname(__file__)), *pathcomponents)) as thefile:
+        return thefile.read()
+
+
 setup(
     name='djangocms-maps',
     version=package.__version__,
@@ -38,7 +46,7 @@ setup(
     license='BSD License',
     platforms=['OS Independent'],
     classifiers=CLASSIFIERS,
-    long_description=open('README.rst').read(),
+    long_description='\n'.join([read('README.rst'), read('CHANGELOG.rst')]),
     include_package_data=True,
     zip_safe=False
 )
