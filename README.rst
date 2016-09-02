@@ -74,8 +74,9 @@ Developer Resources
 
 - Bing:
   - `Dev Center <https://www.bingmapsportal.com/>`__
+  - `docs overview <https://msdn.microsoft.com/en-us/library/dd877180.aspx>`__
   - `API docs <https://msdn.microsoft.com/en-us/library/mt712552.aspx>`__
-  - `examples <https://msdn.microsoft.com/en-us/library/mt712542.aspx>`__
+  - `examples <http://www.bing.com/api/maps/sdk/mapcontrol/isdk>`__
 - Google:
   - `API docs <https://developers.google.com/maps/documentation/javascript/>`__
 - HERE:
