@@ -1,6 +1,15 @@
 CHANGELOG
 =========
 
+0.6.0 (2016-09-02)
+------------------
+
+- Allow to display or hide layers control and scale bar
+- Implement HERE WeGo provider
+- Bugfix: Allow keyboard navigation (Mapbox)
+- Run static code analysis for all supported Python versions
+- Implement Bing Maps provider
+
 0.5.0 (2016-09-01)
 ------------------
 
