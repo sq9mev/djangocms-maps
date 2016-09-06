@@ -64,6 +64,15 @@ of the list to make it the default.  **Default:**
 --------------------------------------
 `API key for ViaMichelin`_ (required for using ViaMichelin maps).
 
+Examples
+========
+
+:Organice Demo:
+    https://demo.organice.io/about/directions/
+
+    Your maps plugin playground! Allows you to directly edit and view (albeit
+    not to publish) changes on the maps plugin after authenticating.
+
 Translations
 ============
 
@@ -88,15 +97,6 @@ Developer Resources
   - `Leaflet API docs <http://leafletjs.com/reference.html>`__
 - ViaMichelin:
   - `API docs <http://dev.viamichelin.com/map-service.html>`__
-
-Examples
-========
-
-:Organice Demo Site:
-    https://demo.organice.io/about/directions/
-
-    Your maps plugin playground! Allows you to directly edit and view (albeit
-    not to publish) changes on the maps plugin after authenticating.
 
 
 .. |latest-version| image:: https://img.shields.io/pypi/v/djangocms-maps.svg
