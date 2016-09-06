@@ -135,5 +135,5 @@ djangocms.Maps = {
 
 };
 
-// initializes all occuring Maps plugins at once.
+// initializes all occurring Maps plugins at once.
 djangocms.Maps.init();
