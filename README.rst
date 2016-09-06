@@ -89,6 +89,15 @@ Developer Resources
 - ViaMichelin:
   - `API docs <http://dev.viamichelin.com/map-service.html>`__
 
+Examples
+========
+
+:Organice Demo Site:
+    https://demo.organice.io/about/directions/
+
+    Your maps plugin playground! Allows you to directly edit and view (albeit
+    not to publish) changes on the maps plugin after authenticating.
+
 
 .. |latest-version| image:: https://img.shields.io/pypi/v/djangocms-maps.svg
    :alt: Latest version on PyPI
