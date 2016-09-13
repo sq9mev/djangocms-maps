@@ -4,7 +4,7 @@
  * Copyright (c) 2016 Peter Bittner <django@bittner.it>
  * Copyright (c) 2016 Divio (original author for Google Maps implementation)
  *
- * documentation: https://developer.here.com/develop/javascript-api
+ * documentation: https://msdn.microsoft.com/en-us/library/mt712552.aspx
  */
 
 var djangocms = window.djangocms || {};
