@@ -42,6 +42,7 @@ setup(
     packages=[
         'djangocms_maps',
         'djangocms_maps.migrations',
+        'djangocms_maps.templatetags',
     ],
     license='BSD License',
     platforms=['OS Independent'],
