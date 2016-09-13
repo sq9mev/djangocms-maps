@@ -59,7 +59,7 @@ djangocms.Maps = {
             mapMenuControl: true,
             mapToolsControl: true,
             mapTypeControl: data.layers_control,
-            markerControl: true,
+            markerControl: data.show_infowindow,
             situationMapControl: false,
             weatherControl: false,
             navigationMode: data.draggable ? ViaMichelin.Api.Constants.Map.NAVIGATION.DRAG
