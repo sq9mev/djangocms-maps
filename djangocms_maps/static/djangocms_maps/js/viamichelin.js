@@ -4,7 +4,7 @@
  * Copyright (c) 2016 Peter Bittner <django@bittner.it>
  * Copyright (c) 2016 Divio (original author for Google Maps implementation)
  *
- * documentation: https://www.mapbox.com/mapbox.js/api/
+ * documentation: http://dev.viamichelin.com/map-service.html
  */
 
 var djangocms = window.djangocms || {};
@@ -53,17 +53,15 @@ djangocms.Maps = {
         var data = container.data();
 
         var options = {
-            container: container,
+            container: $_id(container.attr('id')),
             geolocationControl: false,
             menuPoiControl: false,
-            mapMenuControl: false,
-            mapToolsControl: false,
+            mapMenuControl: true,
+            mapToolsControl: true,
             mapTypeControl: data.layers_control,
             markerControl: true,
             situationMapControl: false,
             weatherControl: false,
-            panControl: data.pan_control,
-            zoomControl: data.zoom_control,
             navigationMode: data.draggable ? ViaMichelin.Api.Constants.Map.NAVIGATION.DRAG
                                            : ViaMichelin.Api.Constants.Map.NAVIGATION.STATIC,
             scrollwheel: data.scrollwheel,
