@@ -2,7 +2,7 @@
 djangocms-maps |latest-version|
 ===============================
 
-|build-status| |health| |python-support| |downloads| |license| |gitter|
+|build-status| |health| |python-support| |license| |gitter|
 
 A universal maps plugin for django CMS, supporting all major map providers.
 
@@ -102,7 +102,7 @@ Developer Resources
 .. |latest-version| image:: https://img.shields.io/pypi/v/djangocms-maps.svg
    :alt: Latest version on PyPI
    :target: https://pypi.python.org/pypi/djangocms-maps
-.. |build-status| image:: https://travis-ci.org/Organice/djangocms-maps.svg?branch=master
+.. |build-status| image:: https://img.shields.io/travis/Organice/djangocms-maps/master.svg
    :alt: Build status
    :target: https://travis-ci.org/Organice/djangocms-maps
 .. |health| image:: https://landscape.io/github/Organice/djangocms-maps/master/landscape.svg?style=flat
@@ -111,9 +111,6 @@ Developer Resources
 .. |python-support| image:: https://img.shields.io/pypi/pyversions/djangocms-maps.svg
    :target: https://pypi.python.org/pypi/djangocms-maps
    :alt: Python versions
-.. |downloads| image:: https://img.shields.io/pypi/dm/djangocms-maps.svg
-   :alt: Monthly downloads from PyPI
-   :target: https://pypi.python.org/pypi/djangocms-maps
 .. |license| image:: https://img.shields.io/pypi/l/djangocms-maps.svg
    :alt: Software license
    :target: https://github.com/Organice/djangocms-maps/blob/master/LICENSE.txt

@@ -23,6 +23,7 @@ CLASSIFIERS = [
     'Programming Language :: Python :: 3.3',
     'Programming Language :: Python :: 3.4',
     'Programming Language :: Python :: 3.5',
+    'Programming Language :: Python :: 3.6',
 ]
 
 
@@ -35,7 +36,7 @@ def read(*pathcomponents):
 setup(
     name='djangocms-maps',
     version=package.__version__,
-    description=package.__doc__,
+    description=package.__doc__.strip(),
     author='Peter Bittner',
     author_email='django@bittner.it',
     url='https://github.com/Organice/djangocms-maps',
