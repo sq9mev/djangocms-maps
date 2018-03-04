@@ -65,11 +65,16 @@ djangocms.Maps = {
             layersControl: data.layers_control,
             scaleBar: data.scale_bar,
             uiLanguage: this.getSupportedLanguage(data.lang_code),
+            useHTTPS: true,
             styles: data.style,
             center: { lat: 46.94708, lng: 7.445975 } // default to switzerland;
         };
 
-        var platform = new H.service.Platform(options.apiKey);
+        var platform = new H.service.Platform({
+            app_id: options.apiKey.app_id,
+            app_code: options.apiKey.app_code,
+            useHTTPS: options.useHTTPS
+        });
         var defaultLayers = platform.createDefaultLayers();
         var map = new H.Map(container[0], defaultLayers.normal.map, options);
 
