@@ -68,7 +68,10 @@ djangocms.Maps = {
         // latitute or longitute have presedence over the address when provided
         // inside the plugin form
         if (data.lat.length && data.lng.length) {
-            var latlng = { lat: parseFloat(data.lat), lng: parseFloat(data.lng) };
+            var latlng = {
+                lat: parseFloat(data.lat.replace(',', '.')),
+                lng: parseFloat(data.lng.replace(',', '.'))
+            };
             map.setCenter(latlng);
             this.addMarker(map, latlng, data);
         } else {

@@ -72,8 +72,11 @@ djangocms.Maps = {
         // latitute or longitute have precedence over the address when provided
         // inside the plugin form
         if (data.lat.length && data.lng.length) {
-            var location = new Microsoft.Maps.Location(parseFloat(data.lat),
-                                                       parseFloat(data.lng));
+            var coords = {
+                lat: parseFloat(data.lat.replace(',', '.')),
+                lng: parseFloat(data.lng.replace(',', '.'))
+            };
+            var location = new Microsoft.Maps.Location(coords.lat, coords.lng);
             this.addMarker(map, location, data);
         } else {
             // load latlng from given address
