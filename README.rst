@@ -14,7 +14,8 @@ Supported online map providers:
 - HERE WeGo
 - ViaMichelin
 
-As of today (2016) all map providers require an API key.
+All map providers require an API key, which you usually get for free by
+creating a developer account (using the links below).
 
 Installation
 ============

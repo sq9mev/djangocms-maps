@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+0.8.0 (2018-03-04)
+------------------
+
+- Fix float rounding error for map coordinates on German sites (which use
+  a colon instead of a period)
+- Configure HERE WeGo to use HTTPS by default
+
 0.7.0 (2016-09-14)
 ------------------
 
