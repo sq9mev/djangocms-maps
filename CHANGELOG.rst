@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+0.9.0 (2019-01-12)
+------------------
+
+- Don't show map title when it's blank (thanks @adrien-delhorme)
+
 0.8.0 (2018-03-04)
 ------------------
 

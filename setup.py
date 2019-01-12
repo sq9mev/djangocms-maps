@@ -20,10 +20,10 @@ CLASSIFIERS = [
     'Programming Language :: Python :: 2',
     'Programming Language :: Python :: 2.7',
     'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.3',
     'Programming Language :: Python :: 3.4',
     'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
 ]
 
 
@@ -37,15 +37,15 @@ setup(
     name='djangocms-maps',
     version=package.__version__,
     description=package.__doc__.strip(),
-    author='Peter Bittner',
-    author_email='django@bittner.it',
-    url='https://github.com/Organice/djangocms-maps',
+    author=package.__author__,
+    author_email=package.__email__,
+    url=package.__url__,
     packages=[
         'djangocms_maps',
         'djangocms_maps.migrations',
         'djangocms_maps.templatetags',
     ],
-    license='BSD License',
+    license=package.__license__,
     platforms=['OS Independent'],
     classifiers=CLASSIFIERS,
     long_description='\n'.join([read('README.rst'), read('CHANGELOG.rst')]),

@@ -2,4 +2,8 @@
 Universal maps plugin for django CMS
 """
 
-__version__ = '0.8.0'
+__author__ = 'Peter Bittner'
+__email__ = 'django@bittner.it'
+__license__ = 'BSD License'
+__url__ = 'https://github.com/Organice/djangocms-maps'
+__version__ = '0.9.0'
