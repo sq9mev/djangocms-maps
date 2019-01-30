@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+0.10.0 (2019-01-30)
+-------------------
+
+- Convert float to string before evaluating (thanks @mireq)
+
 0.9.0 (2019-01-12)
 ------------------
 
