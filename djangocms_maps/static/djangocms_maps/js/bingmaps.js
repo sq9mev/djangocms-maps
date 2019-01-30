@@ -71,6 +71,8 @@ djangocms.Maps = {
 
         // latitute or longitute have precedence over the address when provided
         // inside the plugin form
+        data.lat = data.lat.toString();
+        data.lng = data.lng.toString();
         if (data.lat.length && data.lng.length) {
             var coords = {
                 lat: parseFloat(data.lat.replace(',', '.')),
