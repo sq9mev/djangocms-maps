@@ -106,8 +106,8 @@ Developer Resources
 .. |build-status| image:: https://img.shields.io/travis/Organice/djangocms-maps/master.svg
    :alt: Build status
    :target: https://travis-ci.org/Organice/djangocms-maps
-.. |health| image:: https://landscape.io/github/Organice/djangocms-maps/master/landscape.svg?style=flat
-   :target: https://landscape.io/github/Organice/djangocms-maps/master
+.. |health| image:: https://img.shields.io/codacy/grade/4ffaf0c75cff489682f4184676785e03/master.svg
+   :target: https://www.codacy.com/app/Organice/djangocms-maps
    :alt: Code health
 .. |python-support| image:: https://img.shields.io/pypi/pyversions/djangocms-maps.svg
    :target: https://pypi.python.org/pypi/djangocms-maps
