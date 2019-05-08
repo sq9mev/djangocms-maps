@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+0.11.0 (2019-05-08)
+-------------------
+
+- Add aldryn_config.py to make plugin visible on Divio marketplace
+- Reformat code (inital migrations, models, forms, templatetags)
+
 0.10.0 (2019-01-30)
 -------------------
 

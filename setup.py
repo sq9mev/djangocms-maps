@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+"""
+Packaging configuration
+"""
 from os.path import abspath, dirname, join
 from setuptools import setup
 
@@ -49,6 +51,7 @@ setup(
     platforms=['OS Independent'],
     classifiers=CLASSIFIERS,
     long_description='\n'.join([read('README.rst'), read('CHANGELOG.rst')]),
+    long_description_content_type='text/x-rst',
     include_package_data=True,
     zip_safe=False
 )
