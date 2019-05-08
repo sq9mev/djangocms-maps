@@ -1,3 +1,6 @@
+"""
+djangoCMS plugin configuration
+"""
 from django.utils.translation import ugettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
@@ -9,6 +12,9 @@ from .settings import API_KEYS
 
 
 class MapsPlugin(CMSPluginBase):
+    """
+    The djangocms_maps plugin
+    """
     model = Maps
     name = _("Maps")
     render_template = "djangocms_maps/maps.html"

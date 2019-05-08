@@ -1,3 +1,6 @@
+"""
+Django models for djangocms_maps
+"""
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -89,14 +92,19 @@ class Maps(CMSPlugin):
     scale_bar = models.BooleanField(_('Scale bar'), default=False)
 
     def __str__(self):
-        return u"%s (%s, %s %s)" % (self.get_title(), self.address,
-                                    self.zipcode, self.city,)
+        return u"%s (%s, %s %s)" % (
+            self.get_title(),
+            self.address,
+            self.zipcode,
+            self.city,
+        )
 
     def get_title(self):
-        if self.title is None:
-            return _("Map")
-        return self.title
+        """Title displayed as a map header"""
+        return _("Map") if self.title is None else self.title
 
     def get_lat_lng(self):
+        """Lat/Lon tuple or None (if unset)"""
         if self.lat and self.lng:
             return self.lat, self.lng
+        return None

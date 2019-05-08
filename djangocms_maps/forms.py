@@ -1,4 +1,7 @@
 # coding: utf-8
+"""
+Django forms for djangocms_maps
+"""
 import json
 import re
 
@@ -13,6 +16,10 @@ CSS_HEIGHT_RE = re.compile(r'^\d+(?:px|em)$')
 
 
 class MapsForm(ModelForm):
+    """
+    Configuration input form for djangocms_maps
+    """
+
     class Meta:
         model = Maps
         fields = '__all__'
@@ -33,6 +40,7 @@ class MapsForm(ModelForm):
         return cleaned_data
 
     def clean_style(self):
+        """Clean and validate JSON in map style field"""
         style = self.cleaned_data.get('style', '').strip()
         if style:
             try:

@@ -1,3 +1,6 @@
+"""
+Django template tag for djangocms_maps
+"""
 from django import template
 from django.template.defaultfilters import stringfilter
 
