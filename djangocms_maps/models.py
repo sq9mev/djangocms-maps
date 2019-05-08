@@ -39,7 +39,7 @@ class Maps(CMSPlugin):
             'Provide a valid JSON configuration (escaped). See '
             'developers.google.com/maps/documentation/javascript/styling'))
 
-    ZOOM_LEVELS = map(lambda c: (c, str(c)), range(22))
+    ZOOM_LEVELS = [(c, str(c)) for c in range(22)]
     zoom = models.PositiveSmallIntegerField(
         _("zoom level"), choices=ZOOM_LEVELS, default=13)
 
