@@ -20,7 +20,9 @@ class Migration(migrations.Migration):
                     to='cms.CMSPlugin',
                     serialize=False,
                     parent_link=True,
-                    auto_created=True)),
+                    auto_created=True,
+                    on_delete=models.CASCADE,
+                )),
                 ('map_provider', models.CharField(
                     verbose_name='map provider',
                     max_length=16,
