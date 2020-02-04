@@ -19,7 +19,7 @@ var djangocms = window.djangocms || {};
 djangocms.Maps = {
 
     options: {
-        container: '.djangocms-maps-container'
+        container: ".djangocms-maps-container"
     },
 
     /**
@@ -69,13 +69,13 @@ djangocms.Maps = {
 
         L.mapbox.accessToken = options.apiKey;
 
-        var map = L.mapbox.map(container[0], 'mapbox.streets', options);
+        var map = L.mapbox.map(container[0], "mapbox.streets", options);
 
         if (options.layersControl) {
             L.control.layers({
-                'Streets': L.mapbox.tileLayer('mapbox.streets').addTo(map),
-                'Satellite': L.mapbox.tileLayer('mapbox.satellite'),
-                'Hybrid': L.mapbox.tileLayer('mapbox.streets-satellite')
+                "Streets": L.mapbox.tileLayer("mapbox.streets").addTo(map),
+                "Satellite": L.mapbox.tileLayer("mapbox.satellite"),
+                "Hybrid": L.mapbox.tileLayer("mapbox.streets-satellite")
             }).addTo(map);
         }
         if (options.scaleBar) {
@@ -88,14 +88,14 @@ djangocms.Maps = {
         data.lng = data.lng.toString();
         if (data.lat.length && data.lng.length) {
             var latlng = {
-                lat: parseFloat(data.lat.replace(',', '.')),
-                lng: parseFloat(data.lng.replace(',', '.'))
+                lat: parseFloat(data.lat.replace(",", ".")),
+                lng: parseFloat(data.lng.replace(",", "."))
             };
             map.setView(latlng, data.zoom);
             this.addMarker(map, latlng, data);
         } else {
             // load latlng from given address
-            L.mapbox.geocoder('mapbox.places').query(data.address, function(err, geodata) {
+            L.mapbox.geocoder("mapbox.places").query(data.address, function(err, geodata) {
                 if (geodata.lbounds) {
                     map.fitBounds(geodata.lbounds);
                 } else if (geodata.latlng) {
@@ -116,19 +116,19 @@ djangocms.Maps = {
      * @param {jQuery} data the data objects from a Map instance
      */
     addMarker: function addMarker(map, latlng, data) {
-        var windowContent = '';
+        var windowContent = "";
         var marker = L.marker(latlng).addTo(map);
 
         if (data.show_infowindow) {
             // prepare info window
             if (data.title) {
-                windowContent += '<h2>' + data.title + '</h2>';
+                windowContent += "<h2>" + data.title + "</h2>";
             }
 
             windowContent += data.address;
 
             if (data.info_content) {
-                windowContent += '<br /><em>' + data.info_content + '</em>';
+                windowContent += "<br /><em>" + data.info_content + "</em>";
             }
 
             marker.bindPopup(windowContent).openPopup();

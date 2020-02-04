@@ -11,7 +11,7 @@ env:
   - TOXENV=pylint
 matrix:
   include:
-    - { python: 3.8, env: TOXENV=bandit }
+    - { python: 3.7, env: TOXENV=bandit }
     - { python: 3.8, env: TOXENV=jshint }
     - { python: 3.8, env: TOXENV=readme }
 

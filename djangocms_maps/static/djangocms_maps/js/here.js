@@ -19,7 +19,7 @@ var djangocms = window.djangocms || {};
 djangocms.Maps = {
 
     options: {
-        container: '.djangocms-maps-container'
+        container: ".djangocms-maps-container"
     },
 
     /**
@@ -83,10 +83,10 @@ djangocms.Maps = {
         map.behavior.enable(options.scrollWheelZoom | options.doubleClickZoom | options.dragging);
 
         map.ui = H.ui.UI.createDefault(map, defaultLayers, options.uiLanguage);
-        map.ui.getControl('zoom').setDisabled(!options.zoomControl);
-        map.ui.getControl('mapsettings').setDisabled(!options.layersControl);
-        map.ui.getControl('scalebar').setDisabled(!options.scaleBar);
-        // map.ui.getControl('panorama').setDisabled(!options.streetViewControl);
+        map.ui.getControl("zoom").setDisabled(!options.zoomControl);
+        map.ui.getControl("mapsettings").setDisabled(!options.layersControl);
+        map.ui.getControl("scalebar").setDisabled(!options.scaleBar);
+        // map.ui.getControl("panorama").setDisabled(!options.streetViewControl);
 
         // latitute or longitute have precedence over the address when provided
         // inside the plugin form
@@ -94,8 +94,8 @@ djangocms.Maps = {
         data.lng = data.lng.toString();
         if (data.lat.length && data.lng.length) {
             var latlng = {
-                lat: parseFloat(data.lat.replace(',', '.')),
-                lng: parseFloat(data.lng.replace(',', '.'))
+                lat: parseFloat(data.lat.replace(",", ".")),
+                lng: parseFloat(data.lng.replace(",", "."))
             };
             this.addMarker(map, latlng, data);
         } else {
@@ -123,7 +123,7 @@ djangocms.Maps = {
      * @param {jQuery} data the data objects from a Map instance
      */
     addMarker: function addMarker(map, latlng, data) {
-        var windowContent = '';
+        var windowContent = "";
         var marker = new H.map.Marker(latlng);
 
         map.addObject(marker);
@@ -132,17 +132,17 @@ djangocms.Maps = {
         if (data.show_infowindow) {
             // prepare info window
             if (data.title) {
-                windowContent += '<h2>' + data.title + '</h2>';
+                windowContent += "<h2>" + data.title + "</h2>";
             }
 
             windowContent += data.address;
 
             if (data.info_content) {
-                windowContent += '<br /><em>' + data.info_content + '</em>';
+                windowContent += "<br /><em>" + data.info_content + "</em>";
             }
 
             marker.bubble = new H.ui.InfoBubble(latlng, { content: windowContent });
-            marker.addEventListener('tap', function(ev) {
+            marker.addEventListener("tap", function(ev) {
                 this.bubble.open();
             });
             map.ui.addBubble(marker.bubble);
@@ -159,19 +159,19 @@ djangocms.Maps = {
      */
     getSupportedLanguage: function getSupportedLanguage(lang_code) {
         var supported_languages = [
-            'en-US',
-            'de-DE',
-            'es-ES',
-            'fi-FI',
-            'fr-FR',
-            'it-IT',
-            'nl-NL',
-            'pl-PL',
-            'pt-BR',
-            'pt-PT',
-            'ru-RU',
-            'tr-TR',
-            'zh-CN'
+            "en-US",
+            "de-DE",
+            "es-ES",
+            "fi-FI",
+            "fr-FR",
+            "it-IT",
+            "nl-NL",
+            "pl-PL",
+            "pt-BR",
+            "pt-PT",
+            "ru-RU",
+            "tr-TR",
+            "zh-CN"
         ];
         if (lang_code in supported_languages) {
             return lang_code;

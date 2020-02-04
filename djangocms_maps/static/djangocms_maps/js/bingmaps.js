@@ -19,7 +19,7 @@ var djangocms = window.djangocms || {};
 djangocms.Maps = {
 
     options: {
-        container: '.djangocms-maps-container'
+        container: ".djangocms-maps-container"
     },
 
     /**
@@ -75,14 +75,14 @@ djangocms.Maps = {
         data.lng = data.lng.toString();
         if (data.lat.length && data.lng.length) {
             var coords = {
-                lat: parseFloat(data.lat.replace(',', '.')),
-                lng: parseFloat(data.lng.replace(',', '.'))
+                lat: parseFloat(data.lat.replace(",", ".")),
+                lng: parseFloat(data.lng.replace(",", "."))
             };
             var location = new Microsoft.Maps.Location(coords.lat, coords.lng);
             this.addMarker(map, location, data);
         } else {
             // load latlng from given address
-            Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
+            Microsoft.Maps.loadModule("Microsoft.Maps.Search", function () {
                 var searchManager = new Microsoft.Maps.Search.SearchManager(map);
                 var requestOptions = {
                     bounds: map.getBounds(),
@@ -117,7 +117,7 @@ djangocms.Maps = {
             // prepare info window
             var windowContent = data.address;
             if (data.info_content) {
-                windowContent += '<br /><em>' + data.info_content + '</em>';
+                windowContent += "<br /><em>" + data.info_content + "</em>";
             }
 
             var infobox = new Microsoft.Maps.Infobox(map.getCenter(), {
@@ -126,7 +126,7 @@ djangocms.Maps = {
             });
             infobox.setMap(map);
 
-            Microsoft.Maps.Events.addHandler(pushpin, 'click', function () {
+            Microsoft.Maps.Events.addHandler(pushpin, "click", function () {
                 infobox.setOptions({ visible: true });
             });
         }

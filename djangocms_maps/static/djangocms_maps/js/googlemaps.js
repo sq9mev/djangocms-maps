@@ -14,7 +14,7 @@ var djangocms = window.djangocms || {};
 djangocms.Maps = {
 
     options: {
-        container: '.djangocms-maps-container'
+        container: ".djangocms-maps-container"
     },
 
     /**
@@ -71,8 +71,8 @@ djangocms.Maps = {
         data.lng = data.lng.toString();
         if (data.lat.length && data.lng.length) {
             var latlng = {
-                lat: parseFloat(data.lat.replace(',', '.')),
-                lng: parseFloat(data.lng.replace(',', '.'))
+                lat: parseFloat(data.lat.replace(",", ".")),
+                lng: parseFloat(data.lng.replace(",", "."))
             };
             map.setCenter(latlng);
             this.addMarker(map, latlng, data);
@@ -99,23 +99,23 @@ djangocms.Maps = {
      */
     addMarker: function addMarker(map, latlng, data) {
         var infoWindow;
-        var windowContent = '';
+        var windowContent = "";
         var marker = new google.maps.Marker({
-            'position': latlng,
-            'map': map,
-            'title': data.title
+            "position": latlng,
+            "map": map,
+            "title": data.title
         });
 
         if (data.show_infowindow) {
             // prepare info window
             if (data.title) {
-                windowContent += '<h2>' + data.title + '</h2>';
+                windowContent += "<h2>" + data.title + "</h2>";
             }
 
             windowContent += data.address;
 
             if (data.info_content) {
-                windowContent += '<br /><em>' + data.info_content + '</em>';
+                windowContent += "<br /><em>" + data.info_content + "</em>";
             }
 
             infowindow = new google.maps.InfoWindow({
@@ -126,7 +126,7 @@ djangocms.Maps = {
             infowindow.open(map, marker);
 
             // register click handler if the user has closed the window to reopen it
-            google.maps.event.addListener(marker, 'click', (function (marker) {
+            google.maps.event.addListener(marker, "click", (function (marker) {
                 return function () {
                     infowindow.open(map, marker);
                     marker.setAnimation(google.maps.Animation.BOUNCE);
