@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+0.12.0 (2020-02-04)
+-------------------
+
+- Adjust migrations for Django 2+ (thanks @macolo)
+- Fix some code smell in JS reported by Codacy
+- Allow jshint to run locally (via tox)
+
 0.11.0 (2019-05-08)
 -------------------
 
