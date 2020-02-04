@@ -1,20 +1,19 @@
 dist: xenial
 language: python
 python:
-  - 2.7
-  - 3.4
   - 3.5
   - 3.6
   - 3.7
+  - 3.8
 
 env:
   - TOXENV=flake8
   - TOXENV=pylint
-  - TOXENV=bandit
 matrix:
   include:
-    - { python: 3.7, env: TOXENV=jshint }
-    - { python: 3.7, env: TOXENV=readme }
+    - { python: 3.8, env: TOXENV=bandit }
+    - { python: 3.8, env: TOXENV=jshint }
+    - { python: 3.8, env: TOXENV=readme }
 
 install:
   - pip install tox-travis
