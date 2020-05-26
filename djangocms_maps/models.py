@@ -5,12 +5,10 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from cms.models import CMSPlugin
-from cms.utils.compat.dj import python_2_unicode_compatible
 
 from .settings import PROVIDERS
 
 
-@python_2_unicode_compatible
 class Maps(CMSPlugin):
     """
     Integration of a map with support for different providers
