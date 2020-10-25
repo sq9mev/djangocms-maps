@@ -74,6 +74,7 @@ djangocms.Maps = {
         if (options.layersControl) {
             L.control.layers({
                 "Streets": L.mapbox.tileLayer("mapbox.streets").addTo(map),
+                "Outdoors": L.mapbox.tileLayer("mapbox.outdoors"),
                 "Satellite": L.mapbox.tileLayer("mapbox.satellite"),
                 "Hybrid": L.mapbox.tileLayer("mapbox.streets-satellite")
             }).addTo(map);
