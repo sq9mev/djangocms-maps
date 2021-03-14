@@ -5,7 +5,10 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from cms.models import CMSPlugin
-from cms.utils.compat.dj import python_2_unicode_compatible
+try:
+    from cms.utils.compat.dj import python_2_unicode_compatible
+except ImportError:
+    from django.utils.six import python_2_unicode_compatible
 
 from .settings import PROVIDERS
 
