@@ -4,6 +4,8 @@ CHANGELOG
 0.13.0 (2021-03-21)
 -------------------
 
+- Run tests with a test project against all modern Python + Django + CMS combinations
+- Remove u-strings and dependency on six (backward-compatibility for Python 2)
 - Fix ImportError on django CMS 3.8.0 (thanks @arnodeceuninck)
 
 0.12.0 (2020-02-04)
