@@ -25,18 +25,18 @@ class MapsForm(ModelForm):
         fields = '__all__'
 
     def clean(self):
-        cleaned_data = super(MapsForm, self).clean()
+        cleaned_data = super().clean()
         width = cleaned_data.get('width', '')
         height = cleaned_data.get('height', '')
         if width or height:
             if width and not CSS_WIDTH_RE.match(width):
                 self._errors['width'] = self.error_class([
-                    _(u'Must be a positive integer followed by'
-                      u' “px”, “em” or “%”.')])
+                    _('Must be a positive integer followed by'
+                      ' “px”, “em” or “%”.')])
             if height and not CSS_HEIGHT_RE.match(height):
                 self._errors['height'] = self.error_class([
-                    _(u'Must be a positive integer followed by'
-                      u' “px”, “em”.')])
+                    _('Must be a positive integer followed by'
+                      ' “px”, “em”.')])
         return cleaned_data
 
     def clean_style(self):
@@ -45,6 +45,7 @@ class MapsForm(ModelForm):
         if style:
             try:
                 json.loads(style)
-            except ValueError:
-                raise ValidationError('Has to be valid JSON', code='invalid')
+            except ValueError as err:
+                raise ValidationError('Has to be valid JSON', code='invalid') \
+                    from err
         return style

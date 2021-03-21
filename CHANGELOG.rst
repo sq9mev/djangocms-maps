@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+0.13.0 (2021-03-21)
+-------------------
+
+- Fix ImportError on django CMS 3.8.0 (thanks @arnodeceuninck)
+
 0.12.0 (2020-02-04)
 -------------------
 

@@ -5,15 +5,10 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from cms.models import CMSPlugin
-try:
-    from cms.utils.compat.dj import python_2_unicode_compatible
-except ImportError:
-    from django.utils.six import python_2_unicode_compatible
 
 from .settings import PROVIDERS
 
 
-@python_2_unicode_compatible
 class Maps(CMSPlugin):
     """
     Integration of a map with support for different providers
@@ -95,7 +90,7 @@ class Maps(CMSPlugin):
     scale_bar = models.BooleanField(_('Scale bar'), default=False)
 
     def __str__(self):
-        return u"%s (%s, %s %s)" % (
+        return "%s (%s, %s %s)" % (
             self.get_title(),
             self.address,
             self.zipcode,
