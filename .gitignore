@@ -1,9 +1,12 @@
-.tox
+.tox/
 *.log
 *.pot
 *.pyc
-*.idea
+__pycache__/
+*.idea/
 local_settings.py
-build
-dist
-djangocms_maps.egg-info
+build/
+dist/
+djangocms_maps.egg-info/
+
+*.sqlite3
