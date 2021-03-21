@@ -9,4 +9,4 @@ build/
 dist/
 djangocms_maps.egg-info/
 
-*.sqlite3
+db.sqlite3*

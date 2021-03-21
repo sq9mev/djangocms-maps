@@ -3,7 +3,7 @@ Django settings for testproject project.
 """
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'insecure'
 SITE_ID = 1
@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'menus',
     'treebeard',
     'sekizai',
+    'djangocms_maps',
 ]
 
 MIDDLEWARE = [
@@ -61,9 +62,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'testproject.wsgi.application'
 
 DATABASES = {
+    # NOTE: str(Path) is a workaround for Django<3.1
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
     }
 }
 
