@@ -30,6 +30,7 @@ jobs:
   - { stage: lint, python: 3.8, env: TOXENV=pylint }
   - { stage: lint, python: 3.8, env: TOXENV=bandit }
   - { stage: lint, python: 3.8, env: TOXENV=jshint }
+  - { stage: lint, python: 3.8, env: TOXENV=divio }
   - { stage: lint, python: 3.8, env: TOXENV=readme }
 
   - stage: deploy
