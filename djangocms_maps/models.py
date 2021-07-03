@@ -90,7 +90,7 @@ class Maps(CMSPlugin):
     scale_bar = models.BooleanField(_('Scale bar'), default=False)
 
     def __str__(self):
-        return u"%s (%s, %s %s)" % (
+        return "%s (%s, %s %s)" % (
             self.get_title(),
             self.address,
             self.zipcode,

@@ -103,10 +103,10 @@ Developer Resources
 .. |latest-version| image:: https://img.shields.io/pypi/v/djangocms-maps.svg
    :alt: Latest version on PyPI
    :target: https://pypi.python.org/pypi/djangocms-maps
-.. |build-status| image:: https://img.shields.io/travis/Organice/djangocms-maps/master.svg
+.. |build-status| image:: https://img.shields.io/travis/Organice/djangocms-maps/main.svg
    :alt: Build status
    :target: https://travis-ci.org/Organice/djangocms-maps
-.. |health| image:: https://img.shields.io/codacy/grade/4ffaf0c75cff489682f4184676785e03/master.svg
+.. |health| image:: https://img.shields.io/codacy/grade/4ffaf0c75cff489682f4184676785e03/main.svg
    :target: https://www.codacy.com/app/Organice/djangocms-maps
    :alt: Code health
 .. |python-support| image:: https://img.shields.io/pypi/pyversions/djangocms-maps.svg
@@ -114,7 +114,7 @@ Developer Resources
    :alt: Python versions
 .. |license| image:: https://img.shields.io/pypi/l/djangocms-maps.svg
    :alt: Software license
-   :target: https://github.com/Organice/djangocms-maps/blob/master/LICENSE.txt
+   :target: https://github.com/Organice/djangocms-maps/blob/main/LICENSE.txt
 .. |gitter| image:: https://badges.gitter.im/Organice/djangocms-maps.svg
    :alt: Gitter chat room
    :target: https://gitter.im/Organice/chat
