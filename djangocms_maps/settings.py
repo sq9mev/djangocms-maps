@@ -3,7 +3,7 @@ Default settings for djangcms_maps
 """
 import json
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 BINGMAPS_API_KEY = getattr(settings, 'MAPS_BINGMAPS_API_KEY', '')
 GOOGLEMAPS_API_KEY = getattr(settings, 'MAPS_GOOGLEMAPS_API_KEY', '')
